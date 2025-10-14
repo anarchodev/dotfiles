@@ -5,6 +5,7 @@ evaluate-commands %sh{
         git clone -q https://github.com/andreyorst/plug.kak.git "$plugins/plug.kak"
     printf "%s\n" "source '$plugins/plug.kak/rc/plug.kak'"
 }
+
 plug "andreyorst/plug.kak" noload
 
 plug "catppuccin/kakoune" theme config %{
@@ -14,3 +15,6 @@ plug "catppuccin/kakoune" theme config %{
 plug "andreyorst/fzf.kak" config %{
   map global normal <c-p> ': fzf-mode<ret>'
 }
+
+eval %sh{kak-lsp}
+lsp-enable
