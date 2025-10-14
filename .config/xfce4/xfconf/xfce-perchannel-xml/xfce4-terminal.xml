@@ -18,4 +18,5 @@
   <property name="tab-activity-color" type="string" value="#fab387"/>
   <property name="misc-menubar-default" type="bool" value="false"/>
   <property name="misc-borders-default" type="bool" value="true"/>
+  <property name="font-name" type="string" value="Monospace 15"/>
 </channel>
