@@ -19,4 +19,5 @@
   <property name="misc-menubar-default" type="bool" value="false"/>
   <property name="misc-borders-default" type="bool" value="true"/>
   <property name="font-name" type="string" value="Monospace 15"/>
+  <property name="scrolling-bar" type="string" value="TERMINAL_SCROLLBAR_NONE"/>
 </channel>
