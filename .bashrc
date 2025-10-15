@@ -45,3 +45,5 @@ export ANDROID_HOME=/home/user/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/build-tools/36.1.0:$ANDROID_HOME/cmdline-tools/latest/bin
 
 export QT_QPA_PLATFORMTHEME=qt5ct
+
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
