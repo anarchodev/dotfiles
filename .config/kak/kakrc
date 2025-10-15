@@ -13,8 +13,18 @@ plug "catppuccin/kakoune" theme config %{
 }
 
 plug "andreyorst/fzf.kak" config %{
-  map global normal <c-p> ': fzf-mode<ret>'
+  map global normal <c-p> '<esc>: require-module fzf; require-module fzf-file; fzf-file<ret>'
+  map global user f ': fzf-mode<ret>' -docstring "FZF Mode"
+} defer fzf-file %{
+  set-option global fzf_file_command "rg -L --files "
 }
+
+map global user l ': enter-user-mode lsp<ret>' -docstring "LSP Mode"
+map global user g ': terminal lazygit<ret>' -docstring "Lazygit"
+map global user t ': terminal bash<ret>' -docstring "Terminal"
+map global user n ': new<ret>' -docstring "New Window"
+map global normal <c-w> ': db<ret>'
+map global insert <tab> '<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>'
 
 eval %sh{kak-lsp}
 lsp-enable
