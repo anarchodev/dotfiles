@@ -57,6 +57,8 @@ bindsym $mod+d exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Ctrl+l exec "i3lock"
+bindsym $mod+Ctrl+s exec "systemctl suspend"
 
 # change focus
 bindsym $mod+h focus left
@@ -207,7 +209,7 @@ set $mantle #181825
 set $crust #11111b
 
 # target                 title     bg    text   indicator  border
-client.focused           $lavender $base $text  $rosewater $lavender
+client.focused           $lavender $base $text  $rosewater $mauve
 client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
 client.unfocused         $overlay0 $base $text  $rosewater $overlay0
 client.urgent            $peach    $base $peach $overlay0  $peach
@@ -220,8 +222,8 @@ bar {
     background         $base
     statusline         $text
     focused_statusline $text
-    focused_separator  $text
-    separator $text
+    focused_separator  $mauve
+    separator          $text
 
 
     # target           border bg        text
@@ -231,6 +233,6 @@ bar {
     urgent_workspace   $base  $red      $crust
   }
   position top
-    separator_symbol " ‖ "
+  separator_symbol " ‖ "
   status_command i3status
 }
