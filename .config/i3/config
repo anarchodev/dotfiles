@@ -234,5 +234,5 @@ bar {
   }
   position top
   separator_symbol " ‖ "
-  status_command i3status
+  status_command i3status-rs
 }
