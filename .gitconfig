@@ -1,0 +1,10 @@
+[init]
+	defaultBranch = main
+[user]
+	signingkey = FEA42B9045868394
+	name = anarchodev
+	email = an@rcho.dev
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
