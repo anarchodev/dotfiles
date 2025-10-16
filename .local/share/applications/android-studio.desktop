@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Android Studio
+Comment=IDE for android development
+GenericName=IDE
+Keywords=IDE
+Exec="/usr/local/android-studio/bin/studio" %U
+Terminal=false
+Type=Application
+Icon="/usr/local/android-studio/bin/studio.png
+StartupWMClass=android-studio-desktop
