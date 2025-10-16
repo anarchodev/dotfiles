@@ -236,3 +236,5 @@ bar {
   separator_symbol " ‖ "
   status_command i3status-rs
 }
+
+for_window [title="^Android Emulator.+:[0-9]+$"] floating enable
