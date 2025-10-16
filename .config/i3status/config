@@ -15,7 +15,6 @@ general {
 	markup = "pango"
 }
 
-order += "ipv6"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "disk /"
