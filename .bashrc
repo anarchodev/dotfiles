@@ -46,4 +46,4 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_H
 
 export QT_QPA_PLATFORMTHEME=qt5ct
 
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:/usr/local/jdt/bin
