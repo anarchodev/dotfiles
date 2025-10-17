@@ -26,5 +26,8 @@ map global user n ': new<ret>' -docstring "New Window"
 map global normal <c-w> ': db<ret>'
 map global insert <tab> '<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>'
 
+hook global BufOpenFile .* %{ editorconfig-load }
+hook global BufNewFile .* %{ editorconfig-load }
+
 eval %sh{kak-lsp}
 lsp-enable
