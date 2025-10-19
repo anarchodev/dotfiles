@@ -49,3 +49,5 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:/usr/local/jdt/bin
 
 eval "$(starship init bash)"
+
+alias l="eza --icons=auto"
