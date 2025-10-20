@@ -51,3 +51,5 @@ export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:/usr/local/jdt/bin
 eval "$(starship init bash)"
 
 alias l="eza --icons=auto"
+
+export TZ='America/Los_Angeles'
