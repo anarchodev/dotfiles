@@ -26,8 +26,20 @@ map global user n ': new<ret>' -docstring "New Window"
 map global normal <c-w> ': db<ret>'
 map global insert <tab> '<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>'
 
-hook global BufOpenFile .* %{ editorconfig-load }
-hook global BufNewFile .* %{ editorconfig-load }
+hook global BufOpenFile .* %{
+  editorconfig-load
+  modeline-parse
+}
+
+hook global BufNewFile .* %{
+  editorconfig-load
+  modeline-parse
+}
+
+hook global BufWritePre .*[.]go %{
+  try %{ lsp-code-actions-sync source.organizeImports }
+  lsp-formatting-sync
+}
 
 eval %sh{kak-lsp}
 lsp-enable
