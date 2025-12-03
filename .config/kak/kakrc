@@ -13,7 +13,7 @@ plug "catppuccin/kakoune" theme config %{
 }
 
 plug "andreyorst/fzf.kak" config %{
-  map global normal <c-p> '<esc>: require-module fzf; require-module fzf-file; fzf-file<ret>'
+  map global normal <c-p> '<esc>: require-module fzf; require-module fzf-file; fzf-file; <ret>'
   map global user f ': fzf-mode<ret>' -docstring "FZF Mode"
 } defer fzf-file %{
   set-option global fzf_file_command "rg -L --files "
@@ -41,6 +41,8 @@ hook global BufWritePre .*[.]go %{
   try %{ lsp-code-actions-sync source.organizeImports }
   lsp-formatting-sync
 }
+
+set-option global windowing_modules 'x11'
 
 eval %sh{kak-lsp}
 lsp-enable

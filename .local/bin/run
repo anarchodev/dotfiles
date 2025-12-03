@@ -1,0 +1,23 @@
+#!/bin/sh
+
+xhost +local:docker 
+docker run --rm -it \
+  --env DISPLAY=$DISPLAY \
+  --env XDG_SEAT=$XDG_SEAT \
+  --env XDG_SESSION_ID=$XDG_SESSION_ID \
+  --env XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR \
+  --env SSH_AUTH_SOCK=$SSH_AUTH_SOCK \
+  --env SSH_ASKPASS=/usr/libexec/openssh/x11-ssh-askpass \
+  --volume /run/udev/data:/run/udev/data:ro \
+  --volume /run/systemd:/run/systemd \
+  --volume /run/user:/run/user/ \
+  --volume /home/user:/home/user/ \
+  --volume /tmp:/tmp \
+  --volume /run/dbus:/run/dbus:ro \
+  --volume /run/media:/run/media \
+  --volume /etc/machine-id:/etc/machine-id \
+  --volume /var/lib/dbus:/var/lib/dbus \
+  --privileged \
+  -d \
+  --name dev \
+  $1 

@@ -31,7 +31,7 @@ fi
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
-alias config='/usr/bin/git --git-dir=/home/user/.cfg/ --work-tree=/home/user'
+alias config='git --git-dir=/home/user/.cfg/ --work-tree=/home/user'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
