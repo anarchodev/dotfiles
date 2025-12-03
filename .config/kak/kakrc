@@ -24,6 +24,7 @@ map global user g ': terminal lazygit<ret>' -docstring "Lazygit"
 map global user t ': terminal bash<ret>' -docstring "Terminal"
 map global user n ': new<ret>' -docstring "New Window"
 map global user w ': w<ret>' -docstring "Write"
+map global user q ': q<ret>' -docstring "Quit"
 map global normal <c-w> ': db<ret>'
 map global insert <tab> '<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>'
 
