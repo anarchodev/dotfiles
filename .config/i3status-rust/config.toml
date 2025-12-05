@@ -43,3 +43,10 @@ cmd = "pavucontrol"
 block = "time"
 interval = 5
 format = " $timestamp.datetime(f:'%a %b %d %I:%M %p') "
+
+[[block]]
+block = "custom"
+command = '''tomat status -o i3status-rs'''
+json = true
+interval = 1
+

@@ -185,7 +185,19 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
+mode "pomo" {
+    bindsym XF86AudioPlay exec tomat toggle
+    bindsym XF86AudioPause exec tomat toggle
+    bindsym XF86AudioNext exec tomat skip
+    bindsym XF86AudioPrev exec tomat stop
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+Shift+p mode "default"
+}
+
 bindsym $mod+r mode "resize"
+bindsym $mod+Shift+p mode "pomo"
 
 set $rosewater #f5e0dc
 set $flamingo #f2cdcd

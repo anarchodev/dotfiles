@@ -11,12 +11,16 @@ docker run --rm -it \
   --volume /run/udev/data:/run/udev/data:ro \
   --volume /run/systemd:/run/systemd \
   --volume /run/user:/run/user/ \
-  --volume /home/user:/home/user/ \
+  --volume /home/user/.gnupg/:/home/user/.gnupg/ \
+  --volume /home/user/.bashrc:/home/user/.bashrc.d/host \
+  --volume /home/user/.local/:/home/user/.local/ \
+  --volume /home/user/.config/:/home/user/.config/ \
   --volume /tmp:/tmp \
   --volume /run/dbus:/run/dbus:ro \
   --volume /run/media:/run/media \
   --volume /etc/machine-id:/etc/machine-id \
   --volume /var/lib/dbus:/var/lib/dbus \
+  --volume src:/home/user/src \
   --privileged \
   -d \
   --name dev \
