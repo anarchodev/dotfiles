@@ -21,6 +21,10 @@ docker run --rm -it \
   --volume /etc/machine-id:/etc/machine-id \
   --volume /var/lib/dbus:/var/lib/dbus \
   --volume src:/home/user/src \
+  --volume android:/home/user/.android \
+  --volume gradle:/home/user/.gradle \
+  --volume /home/user/.gitconfig:/home/user/.gitconfig \
+  --volume /home/user/.ssh/:/home/user/.ssh/ \
   --privileged \
   -d \
   --name dev \
