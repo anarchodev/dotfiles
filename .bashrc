@@ -19,3 +19,4 @@ eval "$(starship init bash)"
 alias ls="eza --icons=auto"
 export TZ='America/Los_Angeles'
 
+export EDITOR=kaks

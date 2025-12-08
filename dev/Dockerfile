@@ -20,7 +20,10 @@ RUN curl -OL https://github.com/kakoune-lsp/kakoune-lsp/releases/download/v18.2.
 RUN tar xzvf kakoune-lsp-v18.2.0-*.tar.gz
 RUN mv kak-lsp /usr/local/bin
 RUN dnf install -y hugo
-
+RUN curl -1sLf 'https://dl.cloudsmith.io/public/task/task/setup.rpm.sh' | bash
+RUN dnf install -y task
+RUN dnf install -y libxkbfile
+RUN curl -s "https://get.sdkman.io" | bash
 RUN groupadd -g 17 audio2
 RUN adduser -g 100 -u 1000 -G wheel,audio2 -p '$6$wMtZ4k2VuBnZ7uqP$nWuirU2XfhqGFG5fUYMRLlwMnbZCDsby8bJrp86OSaFlJMe1hyGfScXXu05AG/iwxK6sAezatGsHIqtdu/SOb/' user
 
@@ -34,7 +37,25 @@ RUN . "/home/user/.nvm/nvm.sh" && nvm install stable
 RUN /usr/local/go/bin/go install github.com/jesseduffield/lazygit@latest
 RUN . /home/user/.cargo/env && cargo install eza
 RUN . /home/user/.cargo/env && /home/user/.risc0/bin/rzup install
+RUN curl -s "https://get.sdkman.io" | bash
+RUN . "/home/user/.sdkman/bin/sdkman-init.sh" && sdk install java 17.0.17-tem
+RUN . "/home/user/.sdkman/bin/sdkman-init.sh" && sdk install gradle
+RUN curl -Lo commandlinetools-linux-13114758_latest.zip https://dl.google.com/android/repository/commandlinetools-linux-13114758_latest.zip
+RUN unzip commandlinetools-linux-13114758_latest.zip
+RUN mkdir -p ~/Android/Sdk/cmdline-tools
+RUN mv cmdline-tools latest
+RUN mv latest ~/Android/Sdk/cmdline-tools/
+COPY ./android /home/user/.bashrc.d/android
+RUN . "/home/user/.sdkman/bin/sdkman-init.sh" && . ~/.bashrc.d/android && yes|sdkmanager "platforms;android-35"
+RUN . "/home/user/.sdkman/bin/sdkman-init.sh" && . ~/.bashrc.d/android && yes|sdkmanager "build-tools;35.0.1"
+RUN . "/home/user/.sdkman/bin/sdkman-init.sh" && . ~/.bashrc.d/android && yes|sdkmanager "system-images;android-35-ext15;google_apis_playstore;x86_64"
+
+RUN . "/home/user/.nvm/nvm.sh" && npm install -g cordova
+RUN . "/home/user/.nvm/nvm.sh" && npm install -g elm
+
+RUN . "/home/user/.sdkman/bin/sdkman-init.sh" && . ~/.bashrc.d/android && echo no|avdmanager create avd --force --name default -k "system-images;android-35-ext15;google_apis_playstore;x86_64"
 
 COPY ./go /home/user/.bashrc.d/go
+
 CMD exec /bin/bash -c "trap : TERM INT; sleep infinity & wait"
 
