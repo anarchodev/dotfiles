@@ -27,5 +27,9 @@ elif [ "$(git rev-parse --show-toplevel 2> /dev/null)" ]; then
 	kak -c "$git_dir" "$@"
 # Otherwise use the 'default' session
 else
-	kak -c "default" "$@"
+	if ! kak -l|grep default; then
+		kak -d -s default &
+	fi
+		kak -c "default" "$@"
+
 fi
