@@ -21,7 +21,7 @@ plug "andreyorst/fzf.kak" config %{
 
 map global user l ': enter-user-mode lsp<ret>' -docstring "LSP Mode"
 map global user g ': terminal lazygit<ret>' -docstring "Lazygit"
-map global user t ': terminal %val{client_env_SHELL}<ret>' -docstring "Terminal"
+map global user t ': terminal %sh{getent passwd $(id -un) | cut -d: -f7}<ret>' -docstring "Terminal"
 map global user n ': new<ret>' -docstring "New Window"
 map global user w ': w<ret>' -docstring "Write"
 map global user q ': q<ret>' -docstring "Quit"
@@ -43,7 +43,7 @@ hook global BufWritePre .*[.]go %{
   lsp-formatting-sync
 }
 
-set-option global windowing_modules 'x11' 'kitty'
+set-option global windowing_modules 'kitty'
 hook global ModuleLoaded 'kitty' %{
   set-option global kitty_window_type 'os-window'
 }

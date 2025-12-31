@@ -123,6 +123,20 @@
   };
 
   services.blueman.enable = true;
+  services.minidlna.enable = true;
+  services.minidlna.openFirewall = true;
+  services.minidlna.settings = {
+    friendly_name = "DLNA MEDIA";
+    media_dir = [
+       "V,/data/Movies/" #Videos files are located here
+    ];
+    log_level = "error";
+    inotify = "yes";
+  };
+
+  users.users.minidlna = {
+    extraGroups = [ "users" ]; # so minidlna can access the files.
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.user = {
@@ -177,6 +191,7 @@
     eza
     fzf
     ripgrep
+    monero-gui
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

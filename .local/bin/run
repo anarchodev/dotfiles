@@ -16,6 +16,7 @@ docker run --rm -it \
   --volume /home/user/.local/:/home/user/.local/ \
   --volume /home/user/.config/:/home/user/.config/ \
   --volume /tmp:/tmp \
+  --volume /data/Monero:/home/user/Monero \
   --volume /run/dbus:/run/dbus:ro \
   --volume /run/media:/run/media \
   --volume /etc/machine-id:/etc/machine-id \
@@ -25,6 +26,7 @@ docker run --rm -it \
   --volume gradle:/home/user/.gradle \
   --volume /home/user/.gitconfig:/home/user/.gitconfig \
   --volume /home/user/.ssh/:/home/user/.ssh/ \
+  --volume /var/run/docker.sock:/var/run/docker.sock \
   --privileged \
   -d \
   --name dev \

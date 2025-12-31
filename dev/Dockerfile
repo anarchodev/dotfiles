@@ -57,5 +57,10 @@ RUN . "/home/user/.sdkman/bin/sdkman-init.sh" && . ~/.bashrc.d/android && echo n
 
 COPY ./go /home/user/.bashrc.d/go
 
+RUN . /home/user/.cargo/env && rustup component add rust-analyzer
+RUN rm commandlinetools-linux-13114758_latest.zip
+
+
+
 CMD exec /bin/bash -c "trap : TERM INT; sleep infinity & wait"
 
