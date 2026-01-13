@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -23,6 +23,8 @@
   services.pulseaudio.enable = false;
   services.gnome.at-spi2-core.enable = true;
   services.gnome.gnome-keyring.enable = true;
+  services.printing.enable = true;
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -133,7 +135,6 @@
     log_level = "error";
     inotify = "yes";
   };
-
   users.users.minidlna = {
     extraGroups = [ "users" ]; # so minidlna can access the files.
   };
@@ -192,6 +193,7 @@
     fzf
     ripgrep
     monero-gui
+    ffmpeg
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -223,6 +225,13 @@
   environment.sessionVariables = rec {
     QT_QPA_PLATFORMTHEME="qt5ct";
   };
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
