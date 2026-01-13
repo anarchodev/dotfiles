@@ -16,7 +16,6 @@ docker run --rm -it \
   --volume /home/user/.local/:/home/user/.local/ \
   --volume /home/user/.config/:/home/user/.config/ \
   --volume /tmp:/tmp \
-  --volume /data/Monero:/home/user/Monero \
   --volume /run/dbus:/run/dbus:ro \
   --volume /run/media:/run/media \
   --volume /etc/machine-id:/etc/machine-id \
@@ -30,4 +29,7 @@ docker run --rm -it \
   --privileged \
   -d \
   --name dev \
-  $1 
+  dev 
+
+
+docker exec -w /home/user dev kitty bash -i -l

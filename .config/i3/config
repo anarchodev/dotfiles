@@ -50,8 +50,8 @@ bindsym XF86AudioPrev exec playerctl previous
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec docker exec -w /home/user dev kitty bash -i -l
-bindsym $mod+Shift+Return exec kitty
+#bindsym $mod+Return exec docker exec -w /home/user dev kitty bash -i -l
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -256,3 +256,4 @@ bar {
 }
 
 for_window [title="^Android Emulator.+:[0-9]+$"] floating enable
+
