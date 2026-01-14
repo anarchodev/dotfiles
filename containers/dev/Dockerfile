@@ -62,7 +62,12 @@ RUN . /home/user/.cargo/env && cargo install cargo-ndk
 RUN . /home/user/.cargo/env && cargo install --force cargo-make
 RUN rm commandlinetools-linux-13114758_latest.zip
 
-
+RUN . "/home/user/.sdkman/bin/sdkman-init.sh" && . ~/.bashrc.d/android && yes|sdkmanager "ndk;29.0.14206865"
+RUN . /home/user/.cargo/env && rustup target add \
+    aarch64-linux-android \
+    armv7-linux-androideabi \
+    x86_64-linux-android \
+    i686-linux-android
 
 CMD exec /bin/bash -c "trap : TERM INT; sleep infinity & wait"
 
