@@ -257,3 +257,4 @@ bar {
 
 for_window [title="^Android Emulator.+:[0-9]+$"] floating enable
 
+exec --no-startup-id xsetroot -solid "#313244"
