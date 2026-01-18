@@ -59,7 +59,6 @@ COPY ./go /home/user/.bashrc.d/go
 
 RUN . /home/user/.cargo/env && rustup component add rust-analyzer
 RUN . /home/user/.cargo/env && cargo install cargo-ndk
-RUN . /home/user/.cargo/env && cargo install --force cargo-make
 RUN rm commandlinetools-linux-13114758_latest.zip
 
 RUN . "/home/user/.sdkman/bin/sdkman-init.sh" && . ~/.bashrc.d/android && yes|sdkmanager "ndk;29.0.14206865"
