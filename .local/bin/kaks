@@ -17,7 +17,7 @@ kak -clear # clear dead sessions
 # if the file is inside a git dir, try connect to a an existing session based on directory name or create a new one
 if [ "$(git rev-parse --show-toplevel 2> /dev/null)" ]; then
 	git_dir=$(basename "$(git rev-parse --show-toplevel | tr -d '.')")
-	existing_session=$(kak -l | grep "$git_dir")
+	existing_session=$(kak -l | grep "^$git_dir\$")
 	[ -z "$existing_session" ] && kak -d -s "$git_dir" &
 	wait_for_session "$git_dir"
 	kak -c "$git_dir" "$@"
