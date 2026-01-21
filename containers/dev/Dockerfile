@@ -68,5 +68,7 @@ RUN . /home/user/.cargo/env && rustup target add \
     x86_64-linux-android \
     i686-linux-android
 
+COPY ./rust /home/user/.bashrc.d/rust
+
 CMD exec /bin/bash -c "trap : TERM INT; sleep infinity & wait"
 
