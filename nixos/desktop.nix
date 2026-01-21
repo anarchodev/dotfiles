@@ -100,6 +100,15 @@
     displayManager = {
       defaultSession = "xfce+i3";
     };
+    udev = {
+      enable = true;
+      extraRules = ''
+      SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", MODE:="0666", SYMLINK+="stm32_dfu"
+      KERNEL=="hidraw*", ATTRS{idVendor}=="16c0", MODE="0664", GROUP="users"
+      KERNEL=="hidraw*", ATTRS{idVendor}=="3297", MODE="0664", GROUP="users"
+      '';
+
+    };
   };
 
   hardware.bluetooth = {
@@ -194,6 +203,7 @@
     ripgrep
     monero-gui
     ffmpeg
+    keymapp
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
