@@ -20,9 +20,7 @@ docker run --rm -it \
   --volume /run/media:/run/media \
   --volume /etc/machine-id:/etc/machine-id \
   --volume /var/lib/dbus:/var/lib/dbus \
-  --volume src:/home/user/src \
-  --volume android:/home/user/.android \
-  --volume gradle:/home/user/.gradle \
+  --volume unreal_src:/home/user/src \
   --volume /home/user/.gitconfig:/home/user/.gitconfig \
   --volume /home/user/.ssh/:/home/user/.ssh/ \
   --volume /var/run/docker.sock:/var/run/docker.sock \

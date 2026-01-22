@@ -9,7 +9,7 @@ for c in *; do
         (
         cat <<EOF
 [Desktop Entry]
-Name=Kitty (${c})
+Name=${c}: Kitty
 Exec="`pwd`/run" %U
 Terminal=false
 Type=Application

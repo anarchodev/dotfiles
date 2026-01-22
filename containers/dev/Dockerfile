@@ -68,6 +68,9 @@ RUN . /home/user/.cargo/env && rustup target add \
     x86_64-linux-android \
     i686-linux-android
 
+RUN curl -Lo android-studio.tar.gz https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.2.3.9/android-studio-2025.2.3.9-linux.tar.gz
+RUN tar xf android-studio.tar.gz
+
 COPY ./rust /home/user/.bashrc.d/rust
 
 CMD exec /bin/bash -c "trap : TERM INT; sleep infinity & wait"
