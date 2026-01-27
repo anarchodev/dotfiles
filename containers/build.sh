@@ -1,11 +1,12 @@
 #!/bin/sh
 
+
 for c in *; do
     if [ -d "$c" ]; then
         (
         cd "$c"
         docker stop "$c"
-        docker buildx build . -t "$c"
+        docker buildx build -t "$c" .
         (
         cat <<EOF
 [Desktop Entry]

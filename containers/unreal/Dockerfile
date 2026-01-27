@@ -22,12 +22,18 @@ RUN mv kak-lsp /usr/local/bin
 RUN dnf install -y libxkbfile
 RUN groupadd -g 17 audio2
 RUN adduser -g 100 -u 1000 -G wheel,audio2 -p '$6$wMtZ4k2VuBnZ7uqP$nWuirU2XfhqGFG5fUYMRLlwMnbZCDsby8bJrp86OSaFlJMe1hyGfScXXu05AG/iwxK6sAezatGsHIqtdu/SOb/' user
+RUN echo "user ALL=(ALL:ALL) NOPASSWD: ALL" | tee /etc/sudoers.d/user
+
 
 USER user
 WORKDIR /home/user
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 RUN . /home/user/.cargo/env && cargo install eza
+RUN sudo dnf install -y which xdg-utils xdg-user-dirs
+
+RUN sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc && echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+RUN sudo dnf install -y code
 
 CMD exec /bin/bash -c "trap : TERM INT; sleep infinity & wait"
 
